@@ -1,0 +1,3 @@
+email_id,text_snippet,predicted_label,probability
+1,"Dear user, your account will be closed...",phishing,0.92
+2,Meeting agenda for tomorrow...,legitimate,0.03
