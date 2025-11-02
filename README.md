@@ -8,8 +8,7 @@ The models above (Random Forest and Logistic Regression) are trained on the phis
 - Demonstrate data preprocessing, feature extraction, model training, and evaluation with reproducible code.
 
 ## Dataset
-No direct dataset URL was detected inside the notebook. If you used a Google Drive link or a private dataset, please update `data/dataset_info.txt` with the correct link or instructions.
-
+Used a CSV file named phishing_emails.csv.
 
 ## Technologies & Libraries
 
@@ -118,10 +117,6 @@ plt.show()
 # Summary
 The models above (Random Forest and Logistic Regression) are trained on the phishing email dataset and evaluated using accuracy and confusion matrix.
 ```
-
-## Screenshots
-
-Add any training/validation plots or confusion matrix images to the `results/` folder and reference them here.
 
 ## Future Enhancements
 
