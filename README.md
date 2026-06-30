@@ -1,3 +1,13 @@
+---
+title: Phishing Email Detector
+emoji: 🛡️
+colorFrom: blue
+colorTo: red
+sdk: gradio
+sdk_version: 4.0.0
+app_file: app.py
+pinned: false
+---
 # Phishing Email Detection using NLP and Machine Learning
 
 A machine learning system that classifies emails as phishing or legitimate using Natural Language Processing and supervised learning, achieving **97.2% classification accuracy** with **56% fewer false positives** using Logistic Regression compared to a Random Forest baseline.
