@@ -12,7 +12,7 @@ pinned: false
 
 A machine learning system that classifies emails as phishing or legitimate using Natural Language Processing and supervised learning, achieving **97.2% classification accuracy** with **56% fewer false positives** using Logistic Regression compared to a Random Forest baseline.
 
-**[Live Demo](https://huggingface.co/spaces/Hemarshini/phishing-email-detector)** &nbsp;·&nbsp; **[Source Code](https://github.com/Hemarshini/Phishing-Email-Detection-using-NLP-and-Machine-Learning)** &nbsp;·&nbsp; Built by [Divvela Hemarshini](https://www.linkedin.com/in/divvelahemarshini)
+**[Live Demo](https://huggingface.co/spaces/Hemarshini/phishing-email-detector)** &nbsp;·&nbsp; **[Source Code](https://github.com/Hemarshini/Phishing-Email-Detection-using-NLP-and-Machine-Learning)** &nbsp;·&nbsp; Built by [Divvela Hemarshini](https://www.linkedin.com/in/divvelahemarshini);
 ---
 
 ## Overview
