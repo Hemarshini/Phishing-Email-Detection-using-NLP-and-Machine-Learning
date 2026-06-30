@@ -8,6 +8,7 @@ sdk_version: "5.9.0"
 app_file: app.py
 pinned: false
 ---
+
 # Phishing Email Detection using NLP and Machine Learning
 
 A machine learning system that classifies emails as phishing or legitimate using Natural Language Processing and supervised learning, achieving **97.2% classification accuracy** with **56% fewer false positives** using Logistic Regression compared to a Random Forest baseline.
@@ -44,6 +45,12 @@ The pipeline takes raw email text through five stages:
 4. **Model training** — Logistic Regression and Random Forest classifiers are trained on the TF-IDF feature matrix
 5. **Evaluation** — both models are benchmarked using accuracy, precision, recall, F1-score, and confusion matrix analysis to select the strongest performer
 
+### URL heuristic layer
+
+TF-IDF based models are strong at detecting lexical patterns common in phishing — urgency language, spam vocabulary, suspicious phrasing — but have a known blind spot: well-crafted phishing emails that mimic calm, professional business tone with no obvious red flags in the wording.
+
+To address this, the deployed app adds a rule-based URL analysis layer (`url_heuristics.py`) that runs alongside the ML prediction. It checks any links in the email for common phishing-domain patterns: missing HTTPS, raw IP addresses instead of domain names, brand impersonation (e.g. a domain mimicking "paypal" without being the real paypal.com), suspicious top-level domains, and excessive hyphen use. This signal surfaces as a separate warning in the app output rather than silently overriding the model, so the system stays transparent about why a flagged URL is suspicious even when the email content alone reads as legitimate.
+
 ## Tech Stack
 
 `Python` `Scikit-learn` `Pandas` `NumPy` `NLP` `TF-IDF` `Gradio` `Matplotlib` `Seaborn`
@@ -67,6 +74,7 @@ Phishing_Email_Detection_using_NLP_and_Machine_Learning/
 │   ├── random_forest_confusion_matrix.png
 │   └── logistic_regression_confusion_matrix.png
 ├── app.py
+├── url_heuristics.py
 ├── model_training.py
 ├── requirements.txt
 └── README.md
@@ -81,8 +89,8 @@ Phishing_Email_Detection_using_NLP_and_Machine_Learning/
 ### Installation
 
 ```bash
-git clone https://github.com/divvelahemarshini/Phishing_Email_Detection_using_NLP_and_Machine_Learning.git
-cd Phishing_Email_Detection_using_NLP_and_Machine_Learning
+git clone https://github.com/Hemarshini/Phishing-Email-Detection-using-NLP-and-Machine-Learning.git
+cd Phishing-Email-Detection-using-NLP-and-Machine-Learning
 pip install -r requirements.txt
 ```
 
@@ -102,18 +110,20 @@ This trains both models, prints evaluation metrics, saves confusion matrix plots
 python app.py
 ```
 
-This launches a local Gradio interface where you can paste email text and get a live prediction.
+This launches a local Gradio interface where you can paste email text and get a live prediction, including the URL heuristic warning when applicable.
 
 ## Live Demo
 
 Try the deployed model on Hugging Face Spaces: **[Live Demo](https://huggingface.co/spaces/Hemarshini/phishing-email-detector)**
-Paste any email text and get an instant phishing/legitimate prediction with a confidence score.
+
+Paste any email text and get an instant phishing/legitimate prediction with a confidence score and URL risk analysis.
 
 ## Future Enhancements
 
 - Extend the pipeline with deep learning approaches (LSTM, Transformer-based models) to capture richer semantic patterns
 - Add model interpretability using SHAP or LIME to explain individual predictions
 - Expand the dataset with additional phishing campaign types for broader generalization
+- Expand the URL heuristic with live domain reputation checks against a threat intelligence feed
 
 ## License
 
@@ -123,4 +133,4 @@ This project is released under the [MIT License](LICENSE).
 
 **Divvela Hemarshini**
 AI & Machine Learning Engineer
-[LinkedIn](https://www.linkedin.com/in/divvelahemarshini) &nbsp;·&nbsp; [GitHub](https://github.com/divvelahemarshini)
+[LinkedIn](https://www.linkedin.com/in/divvelahemarshini) &nbsp;·&nbsp; [GitHub](https://github.com/Hemarshini)
