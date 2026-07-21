@@ -1,0 +1,34 @@
+# Version control
+.git
+.gitignore
+
+# Python cache/artifacts
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+*.egg-info/
+
+# Virtual environments
+venv/
+.venv/
+env/
+
+# Notebooks and dev artifacts (not needed at runtime)
+notebooks/
+*.ipynb
+
+# Results/plots generated during training (not needed for serving)
+results/
+
+# OS/editor files
+.DS_Store
+.vscode/
+.idea/
+
+# CI/CD config (not needed inside the image itself)
+.github/
+
+# Tests (not needed inside the runtime image, only for CI)
+tests/
