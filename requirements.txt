@@ -1,7 +1,7 @@
 pandas
-numpy
-scikit-learn
+numpy==2.2.6
+scikit-learn==1.7.2
+joblib==1.5.3
 matplotlib
 seaborn
-joblib
 gradio>=5.9.0
