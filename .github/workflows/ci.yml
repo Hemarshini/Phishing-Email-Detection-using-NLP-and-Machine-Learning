@@ -27,7 +27,7 @@ jobs:
           pip install pytest
 
       - name: Run smoke tests
-        run: pytest tests/ -v
+        run: PYTHONPATH=. pytest tests/ -v
 
   docker-build:
     name: Build Docker image
