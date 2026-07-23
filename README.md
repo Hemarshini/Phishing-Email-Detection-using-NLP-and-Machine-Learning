@@ -13,7 +13,7 @@ pinned: false
 
 A machine learning system that classifies emails as phishing or legitimate using Natural Language Processing and supervised learning, achieving **97.2% classification accuracy** with **56% fewer false positives** using Logistic Regression compared to a Random Forest baseline.
 
-**[Live Demo](https://huggingface.co/spaces/Hemarshini/phishing-email-detector)** &nbsp;·&nbsp; **[Source Code](https://github.com/Hemarshini/Phishing-Email-Detection-using-NLP-and-Machine-Learning)** &nbsp;·&nbsp; Built by [Divvela Hemarshini](https://www.linkedin.com/in/divvelahemarshini)
+**[Live Demo](https://huggingface.co/spaces/Hemarshini/phishing-email-detector)** &nbsp;·&nbsp; **[Source Code](https://github.com/Hemarshini/Phishing-Email-Detection-using-NLP-and-Machine-Learning)** &nbsp;·&nbsp; Built by [Divvela Hemarshini](https://www.linkedin.com/in/divvelahemarshini)[![CI](https://github.com/Hemarshini/Phishing-Email-Detection-using-NLP-and-Machine-Learning/actions/workflows/ci.yml/badge.svg)](https://github.com/Hemarshini/Phishing-Email-Detection-using-NLP-and-Machine-Learning/actions/workflows/ci.yml)
 
 ---
 
@@ -111,6 +111,27 @@ python app.py
 ```
 
 This launches a local Gradio interface where you can paste email text and get a live prediction, including the URL heuristic warning when applicable.
+
+## Docker & CI/CD
+
+The app is containerized with Docker for consistent, portable deployment, and a GitHub Actions CI pipeline runs automated smoke tests on every push — validating that the trained model and vectorizer load correctly and produce valid predictions on realistic sample emails before any Docker build is allowed to proceed.
+
+### Run with Docker
+
+```bash
+docker build -t phishing-email-detector .
+docker run -p 7860:7860 phishing-email-detector
+```
+
+Then open `http://localhost:7860` in your browser.
+
+### CI Pipeline
+
+Every push to `main` triggers:
+1. **Automated smoke tests** — confirms model artifacts load without error and produce valid predictions
+2. **Docker build** — only runs if tests pass, ensuring a broken model or dependency never reaches a deployable image
+
+See the workflow file at `.github/workflows/ci.yml`.
 
 ## Live Demo
 
